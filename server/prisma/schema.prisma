@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  clerkId       String    @unique
+  email         String    @unique
+  name          String?
+  projects      Project[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Project {
+  id               String            @id @default(cuid())
+  userId           String
+  user             User              @relation(fields: [userId], references: [id])
+  name             String
+  idea             String
+  industry         String
+  country          String
+  budget           String
+  businessModel    String
+  validationReport ValidationReport?
+  status           String            @default("PENDING") // PENDING, PROCESSING, COMPLETED, FAILED
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+}
+
+model ValidationReport {
+  id                String   @id @default(cuid())
+  projectId         String   @unique
+  project           Project  @relation(fields: [projectId], references: [id])
+  
+  // JSON fields for flexible AI generated data
+  scores            Json?    // { demand, competition, scalability, innovation, risk, overall }
+  marketResearch    Json?    // { size, overview, trends, opportunities, challenges }
+  competitors       Json?    // { topCompetitors: [], analysis: "" }
+  swot              Json?    // { strengths, weaknesses, opportunities, threats }
+  personas          Json?    // Array of persona objects
+  businessModel     Json?    // { revenueStreams, pricing, canvas }
+  gtmStrategy       Json?    // { strategy, acquisition, timeline }
+  roadmap           Json?    // { phases }
+  investorReadiness Json?    // { potential, attractiveness, recommendations }
+  businessPlan      Json?    // { summary, problem, solution, ... }
+  landingPage       Json?    // { hero, features, benefits, ... }
+  
+  // New AI advanced features
+  digitalTwin       Json?    // { growthProbability, revenueProjection, fundingReadiness, riskForecast, marketForecast }
+  pitchDeck         Json?    // { slides: [...] }
+  branding          Json?    // { name, tagline, personality, colors, logos }
+  simulations       Json?    // { scenarios: [...] }
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
