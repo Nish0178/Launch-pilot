@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { useProject } from "@/hooks/useProject";
 import { Loader2, TrendingUp, DollarSign, Activity, AlertTriangle } from "lucide-react";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { cn } from "@/lib/utils";
 
 export default function DigitalTwinPage() {
@@ -82,29 +83,27 @@ export default function DigitalTwinPage() {
               </div>
             </div>
 
-            {/* Adoption Chart (CSS based for simplicity & premium look) */}
             <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-xl md:col-span-2">
               <h3 className="font-semibold text-white mb-6">User Adoption Forecast</h3>
-              <div className="flex items-end h-40 gap-2 w-full">
-                {data?.adoptionForecast?.map((item: any, i: number) => {
-                  const maxUsers = Math.max(...data.adoptionForecast.map((d: any) => d.users));
-                  const heightPct = (item.users / maxUsers) * 100;
-                  return (
-                    <div key={i} className="flex-1 flex flex-col items-center gap-2 group">
-                      <div className="w-full relative bg-slate-800/50 rounded-t-sm flex items-end justify-center group-hover:bg-slate-800 transition-colors h-full">
-                        <div 
-                          className="w-full bg-gradient-to-t from-indigo-600/20 to-indigo-500 rounded-t-sm transition-all duration-1000 group-hover:from-indigo-500 group-hover:to-purple-400" 
-                          style={{ height: `${heightPct}%` }}
-                        >
-                          <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold bg-white text-slate-900 px-2 py-1 rounded">
-                            {item.users}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-xs text-slate-500 font-medium">{item.month}</div>
-                    </div>
-                  );
-                })}
+              <div className="h-64 w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={data?.adoptionForecast} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#6366f1" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+                    <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
+                    <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => \`\${value >= 1000 ? (value/1000).toFixed(1) + 'k' : value}\`} />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', color: '#f8fafc' }}
+                      itemStyle={{ color: '#818cf8' }}
+                    />
+                    <Area type="monotone" dataKey="users" stroke="#818cf8" strokeWidth={3} fillOpacity={1} fill="url(#colorUsers)" />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
             </div>
 

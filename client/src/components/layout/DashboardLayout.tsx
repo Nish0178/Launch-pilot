@@ -51,6 +51,7 @@ const sidebarItems = [
   { name: "Landing Page", icon: Globe, href: "/dashboard/landing-page" },
   { name: "Shark Tank Mode", icon: Lightbulb, href: "/dashboard/sharktank" },
   { name: "AI Co-Founder", icon: MessageSquare, href: "/dashboard/cofounder" },
+  { name: "Judge View", icon: Sparkles, href: "/dashboard/judge" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -76,12 +77,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="min-h-screen bg-slate-950 text-slate-200 flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
         {/* Simplified Header */}
         <header className="h-16 flex items-center justify-between px-8 border-b border-white/5 bg-slate-950/50 backdrop-blur-md">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-indigo-600 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-bold text-lg tracking-tight">LaunchPilot AI</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="/logo.png" alt="LaunchPilot AI Logo" className="h-14 w-auto object-contain" />
+          </Link>
           <div className="flex items-center gap-4">
             <span className="text-xs text-slate-400">Step 1: Enter Startup Idea</span>
           </div>
@@ -116,12 +114,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           isSidebarOpen ? "w-64 translate-x-0" : "w-64 -translate-x-full md:w-20 md:translate-x-0"
         )}
       >
-        <div className="flex h-16 items-center px-6 gap-3 shrink-0">
-          <div className="p-2 bg-indigo-600 rounded-lg shrink-0">
-            <TrendingUp className="w-5 h-5 text-white" />
-          </div>
-          <span className={cn("font-bold text-lg tracking-tight transition-opacity", isSidebarOpen ? "opacity-100" : "md:opacity-0 md:w-0 overflow-hidden")}>LaunchPilot</span>
-        </div>
+        <Link href="/" className={cn("flex items-center justify-center shrink-0 hover:opacity-80 transition-opacity mt-4 mb-2", isSidebarOpen ? "px-4" : "px-2")}>
+          <img src="/logo.png" alt="LaunchPilot AI Logo" className={cn("object-contain transition-all w-full", isSidebarOpen ? "max-w-[210px]" : "max-w-[48px]")} />
+        </Link>
 
         <div className="flex-1 px-3 py-2 overflow-y-auto">
           <nav className="space-y-1">

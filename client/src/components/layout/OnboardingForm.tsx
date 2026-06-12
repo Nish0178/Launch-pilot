@@ -42,7 +42,7 @@ export default function OnboardingForm({ onSubmit, initialIdea = "" }: Onboardin
     name: "",
     idea: initialIdea,
     industry: "",
-    country: "Global",
+    country: "India",
     budget: "$10,000 - $50,000",
     businessModel: "SaaS Subscription"
   });
@@ -186,13 +186,18 @@ export default function OnboardingForm({ onSubmit, initialIdea = "" }: Onboardin
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Target Country / Market</label>
-              <Input
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Target Market</label>
+              <select
                 value={form.country}
                 onChange={(e) => setForm({ ...form, country: e.target.value })}
-                placeholder="e.g. United States, Global, India, Europe"
-                className="bg-slate-950/60 border-white/10 text-white rounded-xl h-11 focus-visible:ring-indigo-600 placeholder:text-slate-600"
-              />
+                className="w-full bg-slate-950/60 border border-white/10 text-white rounded-xl h-11 px-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 text-sm transition-all"
+              >
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="UAE">UAE</option>
+                <option value="Global">Global</option>
+              </select>
             </div>
           </div>
         )}

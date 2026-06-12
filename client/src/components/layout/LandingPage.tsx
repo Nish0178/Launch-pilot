@@ -123,15 +123,10 @@ export default function LandingPage() {
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-40 border-b border-white/5 bg-slate-950/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-xl shadow-lg shadow-indigo-600/20">
-                <Rocket className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-black tracking-tight bg-gradient-to-r from-white via-indigo-100 to-indigo-300 bg-clip-text text-transparent">
-                LaunchPilot <span className="text-indigo-400 font-medium">AI</span>
-              </span>
-            </div>
+          <div className="flex justify-between h-20 items-center">
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <img src="/logo.png" alt="LaunchPilot AI Logo" className="h-16 w-auto object-contain" />
+            </Link>
             
             <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
               <a href="#features" className="hover:text-white transition-colors">Features</a>
@@ -426,12 +421,9 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-white/5 py-12 px-6 bg-slate-950">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-lg">
-              <Rocket className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-extrabold text-white">LaunchPilot AI</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="/logo.png" alt="LaunchPilot AI Logo" className="h-12 w-auto object-contain" />
+          </Link>
           <p className="text-slate-500 text-xs">© 2026 LaunchPilot AI. Formulate startup validation reports in 60 seconds.</p>
           <div className="flex gap-6 text-slate-400 text-xs">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
