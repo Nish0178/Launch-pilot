@@ -108,7 +108,7 @@ export default function HackathonJudgePage() {
               </div>
               <div className="text-emerald-400">export function buildDigitalTwinPrompt(...) {'{'}</div>
               <div className="text-amber-300 ml-4 mt-2">return \`You are an advanced AI predictive engine.</div>
-              <div className="text-amber-300 ml-4">Generate a forecast for \${name}.</div>
+              <div className="text-amber-300 ml-4">Generate a forecast for {"${name}"}.</div>
               <div className="text-amber-300 ml-4">Your response must be a single valid JSON object.</div>
               <div className="text-slate-300 ml-4 mt-2">{'{'}</div>
               <div className="text-slate-300 ml-8">"growthProbability": number (0-100),</div>
