@@ -49,7 +49,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
         setProject(data);
       }
     } catch (err: any) {
-      console.error(err);
+      console.warn("Project fetch failed:", err.message);
       setError(err.message || "Failed to load validation intelligence");
     } finally {
       setLoading(false);
@@ -122,7 +122,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       setProject(demoProject);
       return demoProject;
     } catch (err: any) {
-      console.error(err);
+      console.warn("Demo project load failed:", err.message);
       setError(err.message || "Failed to load demo project");
       return null;
     } finally {

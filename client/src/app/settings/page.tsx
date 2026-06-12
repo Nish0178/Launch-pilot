@@ -12,6 +12,7 @@ export default function SettingsPage() {
         
         <div className="w-full flex justify-center [&>.cl-rootBox]:w-full [&>.cl-rootBox]:max-w-4xl">
           <UserProfile 
+            routing="hash"
             appearance={{
               elements: {
                 rootBox: "w-full shadow-2xl",

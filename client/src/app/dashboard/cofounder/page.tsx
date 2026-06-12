@@ -8,6 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Send, Bot, User, Sparkles, AlertCircle, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useProject } from "@/hooks/useProject";
+import { useAuth } from "@clerk/nextjs";
 
 interface Message {
   role: "assistant" | "user";
@@ -16,6 +17,7 @@ interface Message {
 }
 
 export default function AICoFounderChat() {
+  const { getToken } = useAuth();
   const { project } = useProject();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -56,9 +58,14 @@ export default function AICoFounderChat() {
     setSending(true);
 
     try {
+      const token = await getToken();
+      
       const res = await fetch(`http://localhost:5000/api/projects/${project.id}/cofounder`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
         body: JSON.stringify({
           messages: messages.map(m => ({ role: m.role, content: m.content })),
           currentMessage: input
