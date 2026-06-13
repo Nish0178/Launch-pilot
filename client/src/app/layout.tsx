@@ -8,7 +8,7 @@ import { dark } from "@clerk/themes";
 import { ProjectProvider } from "@/hooks/useProject";
 import FirebaseAnalytics from "@/components/FirebaseAnalytics";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
