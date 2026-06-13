@@ -37,7 +37,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("http://localhost:5000/api/projects/latest", { headers });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/projects/latest`, { headers });
       if (!res.ok) {
         if (res.status === 404) {
           setProject(null);
@@ -74,7 +74,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("http://localhost:5000/api/projects", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/projects`, {
         method: "POST",
         headers,
         body: JSON.stringify(data),
@@ -105,7 +105,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("http://localhost:5000/api/projects/demo", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/projects/demo`, {
         method: "POST",
         headers,
       });

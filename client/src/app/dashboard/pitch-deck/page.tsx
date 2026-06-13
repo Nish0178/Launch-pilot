@@ -29,7 +29,7 @@ export default function PitchDeckPage() {
           const headers: Record<string, string> = { "Content-Type": "application/json" };
           if (token) headers["Authorization"] = `Bearer ${token}`;
 
-          const res = await fetch(`http://localhost:5000/api/projects/${project.id}/pitch-deck`, { 
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/projects/${project.id}/pitch-deck`, { 
             method: 'POST',
             headers
           });
