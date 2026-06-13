@@ -165,8 +165,19 @@ The JSON schema must be:
       "description": "string",
       "buttonText": "string"
     }
-  }
+  },
+  "crossQuestions": [
+    {
+      "question": "string (Tough, critical question challenging the founder's assumptions)",
+      "explanation": "string (Deep explanation of why this question is critical, the systemic risks involved, and the real-world consequence if the founder fails to solve it)"
+    },
+    ... (exactly 5 questions)
+  ]
 }
 
-Respond ONLY with raw JSON. Make the content detailed, professional, and custom-tailored to the startup idea. Do not include any text outside the JSON.`;
+CRITICAL INSTRUCTIONS:
+1. Respond ONLY with raw JSON. No markdown formatting like \`\`\`json.
+2. Be HIGHLY CRITICAL and objective. Do not just sugarcoat the idea.
+3. For the SWOT (Pros and Cons) and Risk sections, dig deep. Expose real systemic risks, regulatory hurdles, why incumbents might crush them, or why the unit economics might fail. 
+4. Provide exactly 5 "crossQuestions" that serve as a harsh reality check for the founder. Each question must include a deep 'explanation' detailing why it matters.`;
 }

@@ -16,18 +16,31 @@ export default function BrandingStudioPage() {
 
   useEffect(() => {
     if (project) {
-      fetch(`http://localhost:5000/api/projects/${project.id}/branding`, { method: 'POST' })
-        .then(res => res.json())
-        .then(d => {
+      const fetchBranding = async () => {
+        try {
+          const token = await getToken();
+          const headers: Record<string, string> = { "Content-Type": "application/json" };
+          if (token) headers["Authorization"] = `Bearer ${token}`;
+
+          const res = await fetch(`http://localhost:5000/api/projects/${project.id}/branding`, { 
+            method: 'POST',
+            headers
+          });
+          const d = await res.json();
           let parsed = d;
           if (typeof d === 'string') {
             try { parsed = JSON.parse(d); } catch(e){}
           }
           setData(parsed);
           setLoading(false);
-        })
+        } catch (error) {
+          console.error("Failed to load branding data", error);
+          setLoading(false);
+        }
+      };
+      fetchBranding();
     }
-  }, [project]);
+  }, [project, getToken]);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);

@@ -10,10 +10,15 @@ import { Globe, Copy, Check, Star, CheckCircle, ArrowRight } from "lucide-react"
 export default function LandingPageGenerator() {
   const { project } = useProject();
   const [copied, setCopied] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   if (!project) return null;
 
   const lp = (project.validationReport as any)?.landingPage;
+
+  const handleCtaClick = () => {
+    setShowModal(true);
+  };
 
   const handleCopy = () => {
     if (!lp) return;
@@ -76,7 +81,10 @@ ${lp.pricing?.map((p: any) => `- ${p.tier}: ${p.price}\n  Features: ${p.features
             <p className="text-sm text-zinc-500 max-w-lg mx-auto mb-6 leading-relaxed">
               {lp?.hero?.tagline || `Transform operations in the ${project.industry} space instantly.`}
             </p>
-            <Button className="bg-amber-500 hover:bg-amber-600 gap-2 h-11 px-6 font-bold rounded-xl shadow-lg shadow-amber-500/20">
+            <Button 
+              onClick={handleCtaClick}
+              className="bg-amber-500 hover:bg-amber-600 gap-2 h-11 px-6 font-bold rounded-xl shadow-lg shadow-amber-500/20 transition-all"
+            >
               {lp?.hero?.ctaText || "Get Started"}
               <ArrowRight className="w-4 h-4" />
             </Button>
@@ -159,6 +167,25 @@ ${lp.pricing?.map((p: any) => `- ${p.tier}: ${p.price}\n  Features: ${p.features
           </div>
         </div>
       </div>
+
+      {/* Wireframe Modal Simulation */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4 backdrop-blur-sm animate-in fade-in">
+          <Card className="max-w-md w-full bg-white shadow-2xl relative overflow-hidden p-8 text-center animate-in zoom-in-95 border-0">
+            <div className="absolute top-0 left-0 w-full h-1 bg-amber-500" />
+            <div className="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-black text-zinc-900 mb-2">Wireframe Preview</h3>
+            <p className="text-zinc-500 mb-8">
+              This is where your real landing page would open a sign-up form, redirect to Stripe, or launch your web app!
+            </p>
+            <Button onClick={() => setShowModal(false)} className="w-full bg-amber-500 hover:bg-amber-600 font-bold h-11">
+              Got it!
+            </Button>
+          </Card>
+        </div>
+      )}
     </DashboardLayout>
   );
 }

@@ -155,6 +155,34 @@ export default function RealityCheckModule() {
               );
             })}
 
+            {/* Cross Questions Section */}
+            {(project.validationReport as any)?.crossQuestions && (
+              <div className="mt-8 space-y-4 animate-in fade-in zoom-in duration-700 delay-150">
+                <h3 className="text-xl font-bold text-zinc-900 flex items-center gap-2">
+                  <ShieldAlert className="w-6 h-6 text-rose-500" />
+                  Founder Cross-Examination
+                </h3>
+                <p className="text-sm text-zinc-500 mb-4">If you can't answer these, your startup will fail. It's that simple.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {(project.validationReport as any).crossQuestions.map((q: any, i: number) => (
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-rose-500/5 border border-rose-500/20">
+                      <div className="mt-0.5 p-1.5 rounded-md bg-rose-500 text-white shrink-0">
+                        <AlertTriangle className="w-4 h-4" />
+                      </div>
+                      <div className="space-y-1.5">
+                        <span className="text-sm text-zinc-900 font-bold leading-relaxed block">{q.question || q}</span>
+                        {q.explanation && (
+                          <span className="text-xs text-zinc-600 leading-relaxed block">
+                            {q.explanation}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex gap-4 mt-6">
               <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0" />
               <div className="space-y-1">

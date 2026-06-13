@@ -16,18 +16,33 @@ export default function DigitalTwinPage() {
 
   useEffect(() => {
     if (project) {
-      fetch(`http://localhost:5000/api/projects/${project.id}/digital-twin`, { method: 'POST' })
-        .then(res => res.json())
-        .then(d => {
+      const loadDigitalTwin = async () => {
+        try {
+          const token = await getToken();
+          const headers: Record<string, string> = { "Content-Type": "application/json" };
+          if (token) headers["Authorization"] = `Bearer ${token}`;
+
+          const res = await fetch(`http://localhost:5000/api/projects/${project.id}/digital-twin`, { 
+            method: 'POST',
+            headers
+          });
+          
+          const d = await res.json();
           let parsed = d;
           if (typeof d === 'string') {
             try { parsed = JSON.parse(d); } catch(e){}
           }
           setData(parsed);
           setLoading(false);
-        })
+        } catch (error) {
+          console.error("Failed to load digital twin data", error);
+          setLoading(false);
+        }
+      };
+      
+      loadDigitalTwin();
     }
-  }, [project]);
+  }, [project, getToken]);
 
   if (!project) return null;
 

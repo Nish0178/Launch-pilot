@@ -22,15 +22,21 @@ export default function SimulationLabPage() {
     if (!project) return;
     setLoading(true);
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       const res = await fetch(`http://localhost:5000/api/projects/${project.id}/simulate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ pricing, market, segment })
       });
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Simulation failed");
       setResult(data);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      alert(e.message || "Failed to run simulation");
     } finally {
       setLoading(false);
     }
@@ -118,21 +124,21 @@ export default function SimulationLabPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                   <div className="bg-zinc-500 p-4 rounded-xl border border-zinc-200 text-center">
                     <div className="text-xs text-zinc-500 mb-1">Predicted CAC</div>
-                    <div className="text-xl font-bold text-zinc-900">{result.metrics.cac}</div>
+                    <div className="text-xl font-bold text-zinc-900">{result?.metrics?.cac}</div>
                   </div>
                   <div className="bg-zinc-500 p-4 rounded-xl border border-zinc-200 text-center">
                     <div className="text-xs text-zinc-500 mb-1">Predicted LTV</div>
-                    <div className="text-xl font-bold text-zinc-900">{result.metrics.ltv}</div>
+                    <div className="text-xl font-bold text-zinc-900">{result?.metrics?.ltv}</div>
                   </div>
                   <div className="bg-zinc-500 p-4 rounded-xl border border-zinc-200 text-center">
                     <div className="text-xs text-zinc-500 mb-1">Time to Profit</div>
-                    <div className="text-xl font-bold text-zinc-900">{result.metrics.timeToProfit}</div>
+                    <div className="text-xl font-bold text-zinc-900">{result?.metrics?.timeToProfit}</div>
                   </div>
                 </div>
 
                 <h3 className="font-semibold text-zinc-900 mb-4">AI Strategic Insights</h3>
                 <div className="space-y-3">
-                  {result.insights.map((insight: string, idx: number) => (
+                  {result?.insights?.map((insight: string, idx: number) => (
                     <div key={idx} className="flex gap-3 bg-zinc-50 p-4 rounded-xl">
                       <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0" />
                       <p className="text-sm text-zinc-800 leading-relaxed">{insight}</p>

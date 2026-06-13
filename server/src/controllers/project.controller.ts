@@ -201,6 +201,7 @@ export const runSimulation = async (req: Request, res: Response): Promise<void> 
       pricing,
       market,
       segment,
+      project.country,
       report
     );
 
@@ -220,7 +221,7 @@ export const generatePitchDeck = async (req: Request, res: Response): Promise<vo
     const report = project.validationReport;
     if (report.pitchDeck) { res.json(report.pitchDeck); return; }
 
-    const pitchDeck = await AIService.generatePitchDeck(project.name, project.idea, report);
+    const pitchDeck = await AIService.generatePitchDeck(project.name, project.idea, project.country, report);
 
     await prisma.validationReport.update({ where: { projectId: id }, data: { pitchDeck: pitchDeck as any } });
     res.json(pitchDeck);

@@ -2,10 +2,15 @@
 
 import React from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import { Terminal, Database, Server, BrainCircuit, Activity, Cpu, Bot, Rocket, Code2, Network } from "lucide-react";
+import { Terminal, Database, Server, BrainCircuit, Activity, Cpu, Bot, Rocket, Code2, Network, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useProject } from "@/hooks/useProject";
 
 export default function HackathonJudgePage() {
+  const { project } = useProject();
+  if (!project) return null;
+  const report = project.validationReport as any;
+
   return (
     <DashboardLayout>
       <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -76,8 +81,54 @@ export default function HackathonJudgePage() {
           </div>
         </div>
 
+        {/* Judge's Critical Evaluation */}
+        {report && (
+          <div className="max-w-5xl mx-auto space-y-6 pt-8 border-t border-zinc-200 mt-8">
+            <h2 className="text-xl font-bold text-zinc-900 flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-rose-500" />
+              Judge's Critical Verdict (Action Items)
+            </h2>
+            <div className="bg-rose-50 border border-rose-500/20 rounded-2xl p-6 shadow-sm">
+              <p className="text-sm text-zinc-600 mb-6">
+                Based on the multi-agent analysis, these are the primary flaws, threats, and weaknesses in your project. A Hackathon Judge or VC will immediately point these out. You must resolve these to succeed:
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Cons */}
+                <div className="space-y-4">
+                  <h3 className="font-bold text-zinc-900 border-b border-rose-500/20 pb-2">Core Weaknesses</h3>
+                  <div className="space-y-3">
+                    {report.swot?.cons?.map((con: string, i: number) => (
+                      <div key={`con-${i}`} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-rose-100">
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                        <p className="text-sm text-zinc-700">{con}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Threats */}
+                <div className="space-y-4">
+                  <h3 className="font-bold text-zinc-900 border-b border-rose-500/20 pb-2">External Threats</h3>
+                  <div className="space-y-3">
+                    {report.investorReadiness?.threats?.map((threat: any, i: number) => (
+                      <div key={`threat-${i}`} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-rose-100">
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                        <div className="text-sm text-zinc-700">
+                          <span className="font-bold block text-zinc-900">{threat.title || threat.type || "Threat"}</span>
+                          <span>{threat.content || threat}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Prompt File Showcase */}
-        <div className="max-w-5xl mx-auto space-y-6 pt-8">
+        <div className="max-w-5xl mx-auto space-y-6 pt-8 border-t border-zinc-200">
           <h2 className="text-xl font-bold text-zinc-900 flex items-center gap-2">
             <Server className="w-5 h-5 text-amber-500" />
             Backend Prompt Builders

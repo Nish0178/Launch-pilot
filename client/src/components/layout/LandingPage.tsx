@@ -201,6 +201,7 @@ export default function LandingPage() {
                     <Sparkles className="w-4 h-4 text-amber-500/80" />
                   </div>
                   <input
+                    suppressHydrationWarning
                     type="text"
                     value={heroInput}
                     onChange={(e) => setHeroInput(e.target.value)}

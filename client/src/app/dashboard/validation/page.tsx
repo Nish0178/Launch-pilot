@@ -11,7 +11,8 @@ import {
   ShieldAlert, 
   Rocket, 
   Award,
-  ArrowUpRight
+  ArrowUpRight,
+  HelpCircle
 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
@@ -143,6 +144,39 @@ export default function ValidationScorePage() {
             </div>
         </CardContent>
       </Card>
+      {/* Reality Check / Cross Questions */}
+      {project.validationReport && (project.validationReport as any).crossQuestions && (
+        <Card className="mt-8 bg-zinc-900 border-zinc-800">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold flex items-center gap-2 text-white">
+              <ShieldAlert className="w-5 h-5 text-rose-500" />
+              Reality Check: Founder Cross-Examination
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-zinc-400 mb-2">
+              Our AI analysis flagged these tough questions based on your pros and cons. You must be able to answer these before seeking investment or launching.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(project.validationReport as any).crossQuestions.map((q: any, i: number) => (
+                <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-zinc-800/50 border border-zinc-700/50">
+                  <div className="mt-0.5 p-1.5 rounded-md bg-rose-500/20 text-rose-500 shrink-0">
+                    <HelpCircle className="w-4 h-4" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <span className="text-sm text-zinc-200 font-bold leading-relaxed block">{q.question || q}</span>
+                    {q.explanation && (
+                      <span className="text-xs text-zinc-400 leading-relaxed block">
+                        {q.explanation}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </DashboardLayout>
   );
 }

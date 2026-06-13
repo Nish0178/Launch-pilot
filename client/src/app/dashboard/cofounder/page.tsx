@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Send, Bot, User, Sparkles, AlertCircle, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useProject } from "@/hooks/useProject";
@@ -121,7 +120,7 @@ export default function AICoFounderChat() {
         </div>
 
         {/* Messages Area */}
-        <ScrollArea className="flex-1 p-6" ref={scrollRef}>
+        <div className="flex-1 overflow-y-auto p-6 min-h-0" ref={scrollRef}>
           <div className="space-y-6">
             {messages.map((msg, i) => (
               <div
@@ -159,7 +158,7 @@ export default function AICoFounderChat() {
               </div>
             )}
           </div>
-        </ScrollArea>
+        </div>
 
         {/* Input Area */}
         <div className="p-4 bg-zinc-50 border-t border-zinc-200">
