@@ -100,22 +100,22 @@ export default function AICoFounderChat() {
 
   return (
     <DashboardLayout>
-      <div className="flex flex-col h-[calc(100vh-12rem)] max-w-4xl mx-auto bg-slate-900/50 border border-white/5 rounded-2xl overflow-hidden backdrop-blur-xl">
+      <div className="flex flex-col h-[calc(100vh-12rem)] max-w-4xl mx-auto bg-slate-50/50 border border-slate-200 rounded-2xl overflow-hidden backdrop-blur-xl">
         {/* Chat Header */}
-        <div className="px-6 py-4 border-b border-white/5 bg-white/5 flex items-center justify-between">
+        <div className="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center">
-              <Bot className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+              <Bot className="w-6 h-6 text-slate-900" />
             </div>
             <div>
-              <h2 className="text-sm font-bold text-white">AI Co-Founder</h2>
+              <h2 className="text-sm font-bold text-slate-900">AI Co-Founder</h2>
               <div className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Expert Advisor Online</span>
+                <span className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Expert Advisor Online</span>
               </div>
             </div>
           </div>
-          <Button variant="ghost" size="icon" className="text-slate-400 hover:text-white">
+          <Button variant="ghost" size="icon" className="text-slate-500 hover:text-slate-900">
             <Sparkles className="w-4 h-4" />
           </Button>
         </div>
@@ -133,15 +133,15 @@ export default function AICoFounderChat() {
               >
                 <div className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
-                  msg.role === "assistant" ? "bg-indigo-600" : "bg-slate-700"
+                  msg.role === "assistant" ? "bg-blue-600" : "bg-slate-700"
                 )}>
                   {msg.role === "assistant" ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
                 </div>
                 <div className={cn(
                   "px-4 py-3 rounded-2xl text-sm leading-relaxed",
                   msg.role === "assistant" 
-                    ? "bg-white/5 text-slate-200 border border-white/10" 
-                    : "bg-indigo-600 text-white"
+                    ? "bg-slate-50 text-slate-800 border border-slate-200" 
+                    : "bg-blue-600 text-white"
                 )}>
                   {msg.content}
                 </div>
@@ -149,11 +149,11 @@ export default function AICoFounderChat() {
             ))}
             {sending && (
               <div className="flex gap-4 max-w-[80%] mr-auto">
-                <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4" />
                 </div>
-                <div className="px-4 py-3 rounded-2xl text-sm leading-relaxed bg-white/5 text-slate-400 border border-white/10 flex items-center gap-2">
-                  <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
+                <div className="px-4 py-3 rounded-2xl text-sm leading-relaxed bg-slate-50 text-slate-500 border border-slate-200 flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
                   Advisor is thinking...
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function AICoFounderChat() {
         </ScrollArea>
 
         {/* Input Area */}
-        <div className="p-4 bg-white/5 border-t border-white/5">
+        <div className="p-4 bg-slate-50 border-t border-slate-200">
           <div className="flex gap-2 mb-3 overflow-x-auto pb-2 scrollbar-none">
             {[
               "Why is my risk score high?",
@@ -175,7 +175,7 @@ export default function AICoFounderChat() {
                 key={q}
                 variant="outline"
                 size="sm"
-                className="shrink-0 bg-slate-900/50 border-white/10 text-slate-300 hover:text-white hover:bg-white/10 rounded-full text-xs"
+                className="shrink-0 bg-slate-50/50 border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-full text-xs"
                 onClick={() => {
                   setInput(q);
                 }}
@@ -190,12 +190,12 @@ export default function AICoFounderChat() {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSend()}
               placeholder="Ask your AI Co-Founder anything..."
-              className="bg-slate-950/50 border-white/10 text-white placeholder:text-slate-500 h-12 pr-12 rounded-xl focus-visible:ring-indigo-600"
+              className="bg-slate-500 border-slate-200 text-slate-900 placeholder:text-slate-500 h-12 pr-12 rounded-xl focus-visible:ring-blue-600"
             />
             <Button 
               onClick={handleSend}
               disabled={sending}
-              className="absolute right-1 top-1 bottom-1 bg-indigo-600 hover:bg-indigo-700 rounded-lg px-3"
+              className="absolute right-1 top-1 bottom-1 bg-blue-600 hover:bg-blue-700 rounded-lg px-3"
             >
               <Send className="w-4 h-4" />
             </Button>

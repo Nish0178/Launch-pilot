@@ -71,11 +71,11 @@ export default function BusinessPlanPage() {
 
       <div className="flex items-center justify-between mb-8 no-print">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">AI Business Plan</h1>
-          <p className="text-slate-400">Professional, investor-ready executive summary and operational plan.</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">AI Business Plan</h1>
+          <p className="text-slate-500">Professional, investor-ready executive summary and operational plan.</p>
         </div>
         <div className="flex gap-2">
-            <Button onClick={handlePrint} variant="outline" className="border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 h-10">
+            <Button onClick={handlePrint} variant="outline" className="border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 h-10">
                 <Printer className="w-4 h-4 mr-2" />
                 Print / Save PDF
             </Button>
@@ -92,7 +92,7 @@ export default function BusinessPlanPage() {
                         <p className="text-slate-500 font-medium uppercase tracking-widest text-xs">Generated Business Strategy v1.0</p>
                     </div>
                     <div className="text-right">
-                        <p className="text-lg font-bold text-indigo-600">{project.name}</p>
+                        <p className="text-lg font-bold text-blue-600">{project.name}</p>
                         <p className="text-sm text-slate-500">{project.industry}</p>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ export default function BusinessPlanPage() {
                 <div className="space-y-12">
                     {sections.map((section, i) => (
                         <div key={i} className="space-y-4">
-                            <h3 className="print-title text-xl font-bold text-slate-800 border-l-4 border-indigo-600 pl-4">{section.title}</h3>
+                            <h3 className="print-title text-xl font-bold text-slate-800 border-l-4 border-blue-600 pl-4">{section.title}</h3>
                             <p className="print-text text-slate-600 leading-relaxed text-lg">
                                 {section.content}
                             </p>
@@ -125,37 +125,37 @@ export default function BusinessPlanPage() {
                 </div>
 
                 <div className="mt-20 pt-10 border-t border-slate-50 text-center">
-                    <p className="text-slate-300 text-xs italic">Confidentially prepared by LaunchPilot AI for {project.name}</p>
+                    <p className="text-slate-700 text-xs italic">Confidentially prepared by LaunchPilot AI for {project.name}</p>
                 </div>
             </Card>
         </div>
 
         {/* Sidebar Actions/Insights */}
         <div className="lg:col-span-1 space-y-6 no-print">
-            <Card className="bg-indigo-600/10 border-indigo-500/20">
+            <Card className="bg-blue-600/10 border-blue-500/20">
                 <CardHeader>
-                    <CardTitle className="text-sm font-bold flex items-center gap-2 text-indigo-400">
+                    <CardTitle className="text-sm font-bold flex items-center gap-2 text-blue-600">
                         <Sparkles className="w-4 h-4" />
                         AI Refinement
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-xs text-slate-500 leading-relaxed">
                         I've optimized this plan for **Venture Capital** standards. You can download this strategy report directly or print it as a PDF.
                     </p>
                     <div className="space-y-2">
-                        <Button variant="outline" className="w-full justify-between text-xs h-9 border-white/5 bg-white/5 hover:bg-white/10 text-slate-300 cursor-default">
+                        <Button variant="outline" className="w-full justify-between text-xs h-9 border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 cursor-default">
                             Tone: Professional / VC
                         </Button>
                     </div>
                 </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-white/5">
+            <Card className="bg-slate-50/50 border-slate-200">
                 <CardContent className="p-6">
-                    <h4 className="text-sm font-bold text-white mb-2">Plan Health Score</h4>
+                    <h4 className="text-sm font-bold text-slate-900 mb-2">Plan Health Score</h4>
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full border-4 border-emerald-500 flex items-center justify-center text-xs font-black text-white">
+                        <div className="w-12 h-12 rounded-full border-4 border-emerald-500 flex items-center justify-center text-xs font-black text-slate-900">
                             96%
                         </div>
                         <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest leading-tight">

@@ -18,7 +18,7 @@ export default function BusinessModelPage() {
     { title: "Key Partners", desc: "Who helps you build and distribute?", items: canvas?.keyPartners, span: "lg:col-span-2" },
     { title: "Key Activities", desc: "What core tasks do you perform?", items: canvas?.keyActivities, span: "lg:col-span-2" },
     { title: "Key Resources", desc: "What assets do you require?", items: canvas?.keyResources, span: "lg:col-span-2" },
-    { title: "Value Propositions", desc: "What value do you deliver?", items: canvas?.valuePropositions, span: "lg:col-span-3 bg-indigo-600/5 border-indigo-500/20" },
+    { title: "Value Propositions", desc: "What value do you deliver?", items: canvas?.valuePropositions, span: "lg:col-span-3 bg-blue-600/5 border-blue-500/20" },
     { title: "Customer Relationships", desc: "How do you interact?", items: canvas?.customerRelationships, span: "lg:col-span-2" },
     { title: "Channels", desc: "How do you reach customers?", items: canvas?.channels, span: "lg:col-span-2" },
     { title: "Customer Segments", desc: "Who are you building for?", items: canvas?.customerSegments, span: "lg:col-span-3" },
@@ -29,13 +29,13 @@ export default function BusinessModelPage() {
   return (
     <DashboardLayout>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Business Model Generator</h1>
-        <p className="text-slate-400">Unit economics, pricing suggestions, and Business Model Canvas.</p>
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">Business Model Generator</h1>
+        <p className="text-slate-500">Unit economics, pricing suggestions, and Business Model Canvas.</p>
       </div>
 
       {/* Monetization & Pricing Highlights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-slate-900/50 border-white/5">
+        <Card className="bg-slate-50/50 border-slate-200">
           <CardHeader>
             <CardTitle className="text-sm font-bold flex items-center gap-2 text-emerald-400">
               <DollarSign className="w-4 h-4" />
@@ -44,26 +44,26 @@ export default function BusinessModelPage() {
           </CardHeader>
           <CardContent className="space-y-2">
             {model?.revenueStreams?.map((stream: string, i: number) => (
-              <p key={i} className="text-xs text-slate-300 leading-relaxed">• {stream}</p>
+              <p key={i} className="text-xs text-slate-700 leading-relaxed">• {stream}</p>
             )) || <p className="text-xs text-slate-500">None defined.</p>}
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-900/50 border-white/5">
+        <Card className="bg-slate-50/50 border-slate-200">
           <CardHeader>
-            <CardTitle className="text-sm font-bold flex items-center gap-2 text-indigo-400">
+            <CardTitle className="text-sm font-bold flex items-center gap-2 text-blue-600">
               <Layers className="w-4 h-4" />
               Pricing Suggestions
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
             {model?.pricingSuggestions?.map((price: string, i: number) => (
-              <p key={i} className="text-xs text-slate-300 leading-relaxed">• {price}</p>
+              <p key={i} className="text-xs text-slate-700 leading-relaxed">• {price}</p>
             )) || <p className="text-xs text-slate-500">None defined.</p>}
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-900/50 border-white/5">
+        <Card className="bg-slate-50/50 border-slate-200">
           <CardHeader>
             <CardTitle className="text-sm font-bold flex items-center gap-2 text-amber-400">
               <RefreshCw className="w-4 h-4" />
@@ -72,10 +72,10 @@ export default function BusinessModelPage() {
           </CardHeader>
           <CardContent className="space-y-2">
             {model?.subscriptionOpportunities?.map((opp: string, i: number) => (
-              <p key={i} className="text-xs text-slate-300 leading-relaxed">• Subscription: {opp}</p>
+              <p key={i} className="text-xs text-slate-700 leading-relaxed">• Subscription: {opp}</p>
             ))}
             {model?.upsellingOpportunities?.map((opp: string, i: number) => (
-              <p key={i} className="text-xs text-slate-300 leading-relaxed">• Upsell: {opp}</p>
+              <p key={i} className="text-xs text-slate-700 leading-relaxed">• Upsell: {opp}</p>
             ))}
           </CardContent>
         </Card>
@@ -84,22 +84,22 @@ export default function BusinessModelPage() {
       {/* Business Model Canvas Grid */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-indigo-500" />
-          <h2 className="text-xl font-bold text-white">Business Model Canvas</h2>
+          <Briefcase className="w-5 h-5 text-blue-500" />
+          <h2 className="text-xl font-bold text-slate-900">Business Model Canvas</h2>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-4">
           {canvasItems.map((item, idx) => (
-            <Card key={idx} className={`${item.span} bg-slate-900/50 border-white/5 group hover:border-white/10 transition-all`}>
+            <Card key={idx} className={`${item.span} bg-slate-50/50 border-slate-200 group hover:border-slate-200 transition-all`}>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-bold text-white flex items-center justify-between">
+                <CardTitle className="text-sm font-bold text-slate-900 flex items-center justify-between">
                   {item.title}
-                  <Info className="w-3.5 h-3.5 text-slate-600 group-hover:text-slate-400 transition-colors" title={item.desc} />
+                  <Info className="w-3.5 h-3.5 text-slate-600 group-hover:text-slate-500 transition-colors" title={item.desc} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 {item.items?.map((li: string, i: number) => (
-                  <div key={i} className="text-xs text-slate-300 bg-white/5 border border-white/5 p-2 rounded-lg leading-relaxed">
+                  <div key={i} className="text-xs text-slate-700 bg-slate-50 border border-slate-200 p-2 rounded-lg leading-relaxed">
                     {li}
                   </div>
                 )) || <p className="text-xs text-slate-500 italic">TBD</p>}

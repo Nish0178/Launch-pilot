@@ -33,58 +33,58 @@ export default function DigitalTwinPage() {
     <DashboardLayout>
       <div className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-indigo-600 rounded-lg">
-            <Activity className="w-5 h-5 text-white" />
+          <div className="p-2 bg-blue-600 rounded-lg">
+            <Activity className="w-5 h-5 text-slate-900" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">Startup Digital Twin</h1>
-            <p className="text-sm text-slate-400">AI forecasted metrics and trajectories.</p>
+            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Startup Digital Twin</h1>
+            <p className="text-sm text-slate-500">AI forecasted metrics and trajectories.</p>
           </div>
         </div>
 
         {loading ? (
-          <div className="flex h-64 items-center justify-center border border-white/5 bg-slate-900/50 rounded-2xl">
-            <Loader2 className="w-8 h-8 text-indigo-500 animate-spin" />
+          <div className="flex h-64 items-center justify-center border border-slate-200 bg-slate-50/50 rounded-2xl">
+            <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
           </div>
         ) : !data || data.error || !data.revenueProjection ? (
-          <div className="flex h-64 items-center justify-center border border-white/5 bg-slate-900/50 rounded-2xl text-slate-400">
+          <div className="flex h-64 items-center justify-center border border-slate-200 bg-slate-50/50 rounded-2xl text-slate-500">
             Failed to load Digital Twin data. {data?.error}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Top Stats */}
-            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-xl">
-              <div className="flex items-center gap-2 mb-4 text-indigo-400">
+            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-6 backdrop-blur-xl">
+              <div className="flex items-center gap-2 mb-4 text-blue-600">
                 <TrendingUp className="w-5 h-5" />
-                <h3 className="font-semibold text-white">Growth Probability</h3>
+                <h3 className="font-semibold text-slate-900">Growth Probability</h3>
               </div>
-              <div className="text-5xl font-black text-white mb-2">{data?.growthProbability}%</div>
+              <div className="text-5xl font-black text-slate-900 mb-2">{data?.growthProbability}%</div>
               <div className="w-full bg-slate-800 rounded-full h-2">
-                <div className="bg-indigo-500 h-2 rounded-full" style={{ width: `${data?.growthProbability || 0}%` }}></div>
+                <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${data?.growthProbability || 0}%` }}></div>
               </div>
               <p className="text-xs text-slate-500 mt-3">Likelihood of reaching Series A milestones within 24 months.</p>
             </div>
 
-            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-xl">
+            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-6 backdrop-blur-xl">
               <div className="flex items-center gap-2 mb-4 text-emerald-400">
                 <DollarSign className="w-5 h-5" />
-                <h3 className="font-semibold text-white">Revenue Projection</h3>
+                <h3 className="font-semibold text-slate-900">Revenue Projection</h3>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-sm text-slate-400 mb-1">6 Months</div>
-                  <div className="text-2xl font-bold text-white">{data?.revenueProjection?.sixMonth}</div>
+                  <div className="text-sm text-slate-500 mb-1">6 Months</div>
+                  <div className="text-2xl font-bold text-slate-900">{data?.revenueProjection?.sixMonth}</div>
                 </div>
                 <div>
-                  <div className="text-sm text-slate-400 mb-1">12 Months</div>
-                  <div className="text-2xl font-bold text-white">{data?.revenueProjection?.twelveMonth}</div>
+                  <div className="text-sm text-slate-500 mb-1">12 Months</div>
+                  <div className="text-2xl font-bold text-slate-900">{data?.revenueProjection?.twelveMonth}</div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-xl md:col-span-2">
-              <h3 className="font-semibold text-white mb-6">User Adoption Forecast</h3>
+            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-6 backdrop-blur-xl md:col-span-2">
+              <h3 className="font-semibold text-slate-900 mb-6">User Adoption Forecast</h3>
               <div className="h-64 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={data?.adoptionForecast} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -108,10 +108,10 @@ export default function DigitalTwinPage() {
             </div>
 
             {/* Risk Forecast */}
-            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-xl md:col-span-2">
+            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-6 backdrop-blur-xl md:col-span-2">
               <div className="flex items-center gap-2 mb-6 text-rose-400">
                 <AlertTriangle className="w-5 h-5" />
-                <h3 className="font-semibold text-white">Risk Decay Forecast</h3>
+                <h3 className="font-semibold text-slate-900">Risk Decay Forecast</h3>
               </div>
               <div className="flex items-center justify-between relative pt-8">
                 <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-800 -z-10" />
@@ -123,7 +123,7 @@ export default function DigitalTwinPage() {
                     )}>
                       {item.riskLevel}%
                     </div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-widest">{item.month}</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-widest">{item.month}</div>
                   </div>
                 ))}
               </div>

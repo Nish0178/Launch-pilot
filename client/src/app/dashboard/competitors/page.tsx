@@ -26,38 +26,38 @@ export default function CompetitorsPage() {
     <DashboardLayout>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Competitor Intelligence</h1>
-          <p className="text-slate-400">Analysis of existing players and market gap opportunities.</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Competitor Intelligence</h1>
+          <p className="text-slate-500">Analysis of existing players and market gap opportunities.</p>
         </div>
-        <Badge variant="outline" className="border-indigo-500/30 text-indigo-400 bg-indigo-500/5 px-4 py-1">
+        <Badge variant="outline" className="border-blue-500/30 text-blue-600 bg-blue-500/5 px-4 py-1">
           {competitors.length} Key Competitors Found
         </Badge>
       </div>
 
       <div className="grid grid-cols-1 gap-6">
         {/* Comparison Table */}
-        <Card className="bg-slate-900/50 border-white/5 overflow-hidden">
-          <CardHeader className="border-b border-white/5 bg-white/5">
+        <Card className="bg-slate-50/50 border-slate-200 overflow-hidden">
+          <CardHeader className="border-b border-slate-200 bg-slate-50">
             <CardTitle className="text-lg font-bold flex items-center gap-2">
-              <Swords className="w-5 h-5 text-indigo-400" />
+              <Swords className="w-5 h-5 text-blue-600" />
               Direct Market Comparison
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <Table>
-              <TableHeader className="bg-white/5">
-                <TableRow className="border-white/5 hover:bg-transparent">
-                  <TableHead className="text-slate-300 font-bold">Competitor</TableHead>
-                  <TableHead className="text-slate-300 font-bold">Key Strengths</TableHead>
-                  <TableHead className="text-slate-300 font-bold">Major Weaknesses</TableHead>
-                  <TableHead className="text-slate-300 font-bold">Pricing Model</TableHead>
-                  <TableHead className="text-slate-300 font-bold">Winning Edge</TableHead>
+              <TableHeader className="bg-slate-50">
+                <TableRow className="border-slate-200 hover:bg-transparent">
+                  <TableHead className="text-slate-700 font-bold">Competitor</TableHead>
+                  <TableHead className="text-slate-700 font-bold">Key Strengths</TableHead>
+                  <TableHead className="text-slate-700 font-bold">Major Weaknesses</TableHead>
+                  <TableHead className="text-slate-700 font-bold">Pricing Model</TableHead>
+                  <TableHead className="text-slate-700 font-bold">Winning Edge</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {competitors.map((comp: any, i: number) => (
-                  <TableRow key={i} className="border-white/5 hover:bg-white/5 transition-colors">
-                    <TableCell className="font-bold text-white py-6">
+                  <TableRow key={i} className="border-slate-200 hover:bg-slate-50 transition-colors">
+                    <TableCell className="font-bold text-slate-900 py-6">
                       <div className="flex items-center gap-2">
                         {comp.name}
                         <ExternalLink className="w-3 h-3 text-slate-500" />
@@ -81,8 +81,8 @@ export default function CompetitorsPage() {
                         ))}
                       </div>
                     </TableCell>
-                    <TableCell className="text-slate-300 text-sm">{comp.pricing}</TableCell>
-                    <TableCell className="text-indigo-400 text-sm italic font-medium">"{comp.advantage}"</TableCell>
+                    <TableCell className="text-slate-700 text-sm">{comp.pricing}</TableCell>
+                    <TableCell className="text-blue-600 text-sm italic font-medium">"{comp.advantage}"</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -92,7 +92,7 @@ export default function CompetitorsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Market Gap Analysis */}
-          <Card className="bg-slate-900/50 border-white/5">
+          <Card className="bg-slate-50/50 border-slate-200">
             <CardHeader>
               <CardTitle className="text-lg font-bold flex items-center gap-2 text-emerald-400">
                 <TrendingUp className="w-5 h-5" />
@@ -105,19 +105,19 @@ export default function CompetitorsPage() {
                 { title: "Transparent Pricing", desc: `Direct SaaS structures like ${project.businessModel} appeal heavily to users tired of opaque pricing setups.` },
                 { title: "Personalized Telemetry", desc: "Our product's adaptive scoring provides granular optimizations that competitors ignore." }
               ].map((gap, i) => (
-                <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/5">
-                  <h4 className="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                <div key={i} className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h4 className="text-slate-900 font-bold text-sm mb-1 flex items-center gap-2">
                     <PlusCircle className="w-4 h-4 text-emerald-400" />
                     {gap.title}
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{gap.desc}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">{gap.desc}</p>
                 </div>
               ))}
             </CardContent>
           </Card>
 
           {/* Risk Factors */}
-          <Card className="bg-slate-900/50 border-white/5">
+          <Card className="bg-slate-50/50 border-slate-200">
             <CardHeader>
               <CardTitle className="text-lg font-bold flex items-center gap-2 text-rose-400">
                 <TrendingDown className="w-5 h-5" />
@@ -130,12 +130,12 @@ export default function CompetitorsPage() {
                 { title: "Aggressive Ads", desc: "Well-funded incumbents can artificially inflate ad auction costs (CPC) to price out early-stage entrants." },
                 { title: "Enterprise Lock-in", desc: "Many enterprise clients prefer buying bundles, making standalone product adoption difficult." }
               ].map((risk, i) => (
-                <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/5">
-                  <h4 className="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                <div key={i} className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h4 className="text-slate-900 font-bold text-sm mb-1 flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 text-rose-400" />
                     {risk.title}
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{risk.desc}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">{risk.desc}</p>
                 </div>
               ))}
             </CardContent>

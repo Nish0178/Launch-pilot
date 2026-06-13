@@ -43,49 +43,49 @@ export default function PitchDeckPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-indigo-600 rounded-lg">
-              <Presentation className="w-5 h-5 text-white" />
+            <div className="p-2 bg-blue-600 rounded-lg">
+              <Presentation className="w-5 h-5 text-slate-900" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Pitch Deck Generator</h1>
-              <p className="text-sm text-slate-400">Export-ready investor slides based on your validation report.</p>
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Pitch Deck Generator</h1>
+              <p className="text-sm text-slate-500">Export-ready investor slides based on your validation report.</p>
             </div>
           </div>
-          <Button variant="outline" className="border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10">
+          <Button variant="outline" className="border-blue-500/30 text-blue-600 hover:bg-blue-500/10">
             <Download className="w-4 h-4 mr-2" />
             Export PDF
           </Button>
         </div>
 
         {loading ? (
-          <div className="flex h-[500px] items-center justify-center border border-white/5 bg-slate-900/50 rounded-2xl">
-            <Loader2 className="w-8 h-8 text-indigo-500 animate-spin" />
+          <div className="flex h-[500px] items-center justify-center border border-slate-200 bg-slate-50/50 rounded-2xl">
+            <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
           </div>
         ) : !data || data.error || !data.slides ? (
-          <div className="flex h-[500px] items-center justify-center border border-white/5 bg-slate-900/50 rounded-2xl text-slate-400">
+          <div className="flex h-[500px] items-center justify-center border border-slate-200 bg-slate-50/50 rounded-2xl text-slate-500">
             Failed to load Pitch Deck data. {data?.error}
           </div>
         ) : (
           <div className="flex flex-col items-center max-w-4xl mx-auto">
             
             {/* Slide Viewer */}
-            <div className="w-full min-h-[300px] md:aspect-video bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col p-6 md:p-12 transition-all duration-500 animate-in fade-in zoom-in-95">
+            <div className="w-full min-h-[300px] md:aspect-video bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-200 rounded-2xl shadow-2xl relative overflow-hidden flex flex-col p-6 md:p-12 transition-all duration-500 animate-in fade-in zoom-in-95">
               
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-32 md:w-64 h-32 md:h-64 bg-purple-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+              <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-32 md:w-64 h-32 md:h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
               {/* Header */}
-              <div className="text-[10px] md:text-xs font-bold text-indigo-400 uppercase tracking-widest mb-6 md:mb-12">
+              <div className="text-[10px] md:text-xs font-bold text-blue-600 uppercase tracking-widest mb-6 md:mb-12">
                 Slide {currentSlide + 1} / {data.slides.length}
               </div>
 
               {/* Content */}
               <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
                   {data.slides[currentSlide]?.title}
                 </h2>
-                <p className="text-lg md:text-xl text-slate-300 leading-relaxed whitespace-pre-wrap">
+                <p className="text-lg md:text-xl text-slate-700 leading-relaxed whitespace-pre-wrap">
                   {data.slides[currentSlide]?.content}
                 </p>
               </div>
@@ -104,7 +104,7 @@ export default function PitchDeckPage() {
                 size="icon" 
                 onClick={handlePrev} 
                 disabled={currentSlide === 0}
-                className="rounded-full w-12 h-12 border-white/10 bg-slate-900/50 text-white hover:bg-indigo-600 hover:border-indigo-600 disabled:opacity-30 disabled:hover:bg-slate-900/50"
+                className="rounded-full w-12 h-12 border-slate-200 bg-slate-50/50 text-slate-700 hover:bg-blue-600 hover:border-blue-600 disabled:opacity-30 disabled:hover:bg-slate-50/50"
               >
                 <ChevronLeft className="w-6 h-6" />
               </Button>
@@ -116,7 +116,7 @@ export default function PitchDeckPage() {
                     onClick={() => setCurrentSlide(idx)}
                     className={cn(
                       "w-2.5 h-2.5 rounded-full transition-all",
-                      idx === currentSlide ? "bg-indigo-500 w-8" : "bg-white/20 hover:bg-white/40"
+                      idx === currentSlide ? "bg-blue-500 w-8" : "bg-white/20 hover:bg-white/40"
                     )}
                   />
                 ))}
@@ -127,7 +127,7 @@ export default function PitchDeckPage() {
                 size="icon" 
                 onClick={handleNext} 
                 disabled={currentSlide === data.slides.length - 1}
-                className="rounded-full w-12 h-12 border-white/10 bg-slate-900/50 text-white hover:bg-indigo-600 hover:border-indigo-600 disabled:opacity-30 disabled:hover:bg-slate-900/50"
+                className="rounded-full w-12 h-12 border-slate-200 bg-slate-50/50 text-slate-700 hover:bg-blue-600 hover:border-blue-600 disabled:opacity-30 disabled:hover:bg-slate-50/50"
               >
                 <ChevronRight className="w-6 h-6" />
               </Button>
