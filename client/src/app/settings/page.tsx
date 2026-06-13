@@ -10,12 +10,12 @@ export default function SettingsPage() {
           <p className="text-sm text-slate-500">Manage your profile, email, password, and security preferences.</p>
         </div>
         
-        <div className="w-full flex justify-center [&>.cl-rootBox]:w-full [&>.cl-rootBox]:max-w-4xl">
+        <div className="w-full flex justify-center">
           <UserProfile 
             routing="hash"
             appearance={{
               elements: {
-                rootBox: "w-full shadow-2xl",
+                rootBox: "w-full max-w-4xl shadow-2xl",
                 card: "bg-slate-50/50 backdrop-blur-xl border border-slate-200 shadow-none w-full",
                 navbar: "border-r border-slate-200 hidden md:block",
                 navbarButton: "text-slate-500 hover:text-slate-900 hover:bg-slate-50",

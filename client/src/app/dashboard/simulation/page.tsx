@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { useProject } from "@/hooks/useProject";
+import { useAuth } from "@clerk/nextjs";
 import { Loader2, FlaskConical, Play, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 export default function SimulationLabPage() {
   const { project } = useProject();
+  const { getToken } = useAuth();
   const [loading, setLoading] = useState(false);
   const [pricing, setPricing] = useState("Freemium");
   const [market, setMarket] = useState("US Market");

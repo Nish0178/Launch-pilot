@@ -3,12 +3,14 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { useProject } from "@/hooks/useProject";
+import { useAuth } from "@clerk/nextjs";
 import { Loader2, TrendingUp, DollarSign, Activity, AlertTriangle } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { cn } from "@/lib/utils";
 
 export default function DigitalTwinPage() {
   const { project } = useProject();
+  const { getToken } = useAuth();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 

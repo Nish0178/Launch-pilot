@@ -167,6 +167,7 @@ export const generateDigitalTwin = async (req: Request, res: Response): Promise<
       project.idea,
       project.industry,
       project.businessModel,
+      project.country,
       report
     );
 

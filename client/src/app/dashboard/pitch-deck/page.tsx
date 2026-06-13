@@ -3,12 +3,14 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { useProject } from "@/hooks/useProject";
+import { useAuth } from "@clerk/nextjs";
 import { Loader2, Presentation, ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export default function PitchDeckPage() {
   const { project } = useProject();
+  const { getToken } = useAuth();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);

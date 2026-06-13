@@ -3,11 +3,13 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { useProject } from "@/hooks/useProject";
+import { useAuth } from "@clerk/nextjs";
 import { Loader2, Paintbrush, Copy, Check, Hexagon, Type, Hash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function BrandingStudioPage() {
   const { project } = useProject();
+  const { getToken } = useAuth();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState<string | null>(null);
