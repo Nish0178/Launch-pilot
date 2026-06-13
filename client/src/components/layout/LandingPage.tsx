@@ -111,38 +111,38 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-800 overflow-hidden selection:bg-blue-500 selection:text-white">
+    <div className="relative min-h-screen bg-white text-zinc-800 overflow-hidden selection:bg-amber-500 selection:text-zinc-900">
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-20" />
       
       {/* Glowing background spotlights */}
-      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[140px] rounded-full -z-10 animate-pulse duration-[8000ms]" />
-      <div className="absolute top-[20%] right-1/4 translate-x-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
-      <div className="absolute bottom-[-10%] left-1/3 w-[600px] h-[600px] bg-blue-500/5 blur-[150px] rounded-full -z-10" />
+      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 blur-[140px] rounded-full -z-10 animate-pulse duration-[8000ms]" />
+      <div className="absolute top-[20%] right-1/4 translate-x-1/2 w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full -z-10" />
+      <div className="absolute bottom-[-10%] left-1/3 w-[600px] h-[600px] bg-amber-500/5 blur-[150px] rounded-full -z-10" />
 
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-40 border-b border-slate-200 bg-white/70 backdrop-blur-md">
+      <nav className="fixed top-0 w-full z-40 border-b border-zinc-200 bg-white/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <img src="/logo.png" alt="LaunchPilot AI Logo" className="h-16 w-auto object-contain" />
             </Link>
             
-            <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
-              <a href="#features" className="hover:text-slate-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="hover:text-slate-900 transition-colors">How It Works</a>
+            <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-700">
+              <a href="#features" className="hover:text-zinc-900 transition-colors">Features</a>
+              <a href="#how-it-works" className="hover:text-zinc-900 transition-colors">How It Works</a>
               <button 
                 onClick={handleLoadDemo} 
-                className="hover:text-blue-600 text-slate-700 font-medium transition-colors bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-xs"
+                className="hover:text-amber-500 text-zinc-700 font-medium transition-colors bg-zinc-50 border border-zinc-200 px-3 py-1.5 rounded-lg text-xs"
               >
                 Launch Demo Report
               </button>
               
               {isLoaded && !userId && (
                 <>
-                  <Link href="/sign-in" className="hover:text-slate-900 transition-colors">Sign In</Link>
+                  <Link href="/sign-in" className="hover:text-zinc-900 transition-colors">Sign In</Link>
                   <Link href="/sign-up">
-                    <Button className="bg-blue-600 text-white hover:bg-blue-700 font-bold rounded-xl shadow-lg shadow-blue-600/20">
+                    <Button className="bg-amber-500 text-zinc-900 hover:bg-amber-600 font-bold rounded-xl shadow-lg shadow-amber-500/20">
                       Sign Up
                     </Button>
                   </Link>
@@ -152,7 +152,7 @@ export default function LandingPage() {
               {isLoaded && userId && (
                 <>
                   <Link href="/dashboard">
-                    <Button className="bg-white text-slate-950 hover:bg-slate-200 font-bold rounded-xl">
+                    <Button className="bg-white text-zinc-950 hover:bg-zinc-200 font-bold rounded-xl">
                       Dashboard
                     </Button>
                   </Link>
@@ -160,7 +160,7 @@ export default function LandingPage() {
                     afterSignOutUrl="/"
                     appearance={{
                       elements: {
-                        userButtonAvatarBox: "w-9 h-9 border border-slate-300"
+                        userButtonAvatarBox: "w-9 h-9 border border-zinc-300"
                       }
                     }}
                   />
@@ -178,39 +178,39 @@ export default function LandingPage() {
             
             {/* Left side text and forms */}
             <div className="lg:col-span-7 space-y-8 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 text-xs font-semibold uppercase tracking-wider animate-pulse">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-xs font-semibold uppercase tracking-wider animate-pulse">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Validate Ideas In 60 Seconds</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] bg-gradient-to-b from-slate-900 via-slate-800 to-slate-500 bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-500 bg-clip-text text-transparent">
                 Validate Your Startup <br />
-                <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 to-amber-500 bg-clip-text text-transparent">
                   Before You Build It
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-zinc-500 leading-relaxed max-w-xl">
                 Skip the guesswork. Enter your startup idea to receive an instant, database-backed validation dashboard. Competitor intel, SWOT matrices, Business Model Canvas, GTM timeline, and investor pitch ready in 60s.
               </p>
 
               {/* Quick Validation input box */}
               <form onSubmit={handleQuickValidate} className="flex flex-col sm:flex-row gap-3 max-w-lg">
                 <div className="relative flex-grow">
-                  <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-slate-500">
-                    <Sparkles className="w-4 h-4 text-blue-500/80" />
+                  <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-zinc-500">
+                    <Sparkles className="w-4 h-4 text-amber-500/80" />
                   </div>
                   <input
                     type="text"
                     value={heroInput}
                     onChange={(e) => setHeroInput(e.target.value)}
                     placeholder="Enter your startup concept (e.g. peer-to-peer camper rental)..."
-                    className="w-full h-12 pl-10 pr-4 bg-slate-50/60 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-slate-600 text-slate-900"
+                    className="w-full h-12 pl-10 pr-4 bg-zinc-50/60 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-zinc-600 text-zinc-900"
                   />
                 </div>
                 <Button 
                   type="submit"
-                  className="h-12 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl gap-2 shadow-lg shadow-blue-600/20"
+                  className="h-12 px-6 bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold rounded-xl gap-2 shadow-lg shadow-amber-500/20"
                 >
                   Quick Start
                   <ArrowRight className="w-4 h-4" />
@@ -222,7 +222,7 @@ export default function LandingPage() {
                 <Button
                   onClick={handleLaunchValidation}
                   size="lg"
-                  className="h-12 px-6 bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-700 hover:to-purple-700 font-bold rounded-xl gap-2 shadow-lg shadow-blue-600/10"
+                  className="h-12 px-6 bg-gradient-to-r from-amber-500 to-amber-500 hover:from-amber-600 hover:to-purple-700 font-bold rounded-xl gap-2 shadow-lg shadow-amber-500/10"
                 >
                   Launch Validation Wizard
                   <ArrowRight className="w-4.5 h-4.5" />
@@ -231,9 +231,9 @@ export default function LandingPage() {
                   onClick={handleLoadDemo}
                   variant="outline"
                   size="lg"
-                  className="h-12 px-6 border-slate-200 bg-slate-50 hover:bg-slate-100 font-bold rounded-xl gap-2"
+                  className="h-12 px-6 border-zinc-200 bg-zinc-50 hover:bg-zinc-100 font-bold rounded-xl gap-2"
                 >
-                  <Play className="w-4 h-4 text-blue-600 fill-blue-600/20" />
+                  <Play className="w-4 h-4 text-amber-500 fill-amber-500/20" />
                   View Demo Report
                 </Button>
               </div>
@@ -241,44 +241,44 @@ export default function LandingPage() {
 
             {/* Right side interactive floating mockup */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-blue-500/10 blur-3xl -z-10 rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 to-amber-500/10 blur-3xl -z-10 rounded-full" />
               
               {/* Premium Dashboard Floating Mockup Card */}
-              <div className="w-full max-w-[380px] bg-slate-50/70 border border-slate-200 rounded-3xl p-6 shadow-2xl backdrop-blur-xl relative overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 blur-2xl rounded-full" />
+              <div className="w-full max-w-[380px] bg-zinc-50/70 border border-zinc-200 rounded-3xl p-6 shadow-2xl backdrop-blur-xl relative overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 blur-2xl rounded-full" />
                 
                 {/* Mock header */}
-                <div className="flex justify-between items-center pb-4 border-b border-slate-200 mb-5">
+                <div className="flex justify-between items-center pb-4 border-b border-zinc-200 mb-5">
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                   </div>
-                  <span className="text-[10px] font-bold text-blue-600 bg-blue-500/10 px-2 py-0.5 rounded-md border border-blue-500/20 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping" />
+                  <span className="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
                     SIMULATION MODE
                   </span>
                 </div>
 
                 {/* Concept name */}
                 <div className="mb-6 space-y-1">
-                  <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">Validated Startup</span>
-                  <h3 className="font-extrabold text-slate-900 text-lg">EcoStream AI</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">AI-driven energy management and optimization software for green homes.</p>
+                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest block">Validated Startup</span>
+                  <h3 className="font-extrabold text-zinc-900 text-lg">EcoStream AI</h3>
+                  <p className="text-xs text-zinc-500 leading-relaxed line-clamp-2">AI-driven energy management and optimization software for green homes.</p>
                 </div>
 
                 {/* Success Score circle */}
-                <div className="flex justify-between items-center p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-6">
+                <div className="flex justify-between items-center p-4 rounded-2xl bg-zinc-50 border border-zinc-200 mb-6">
                   <div className="space-y-1">
-                    <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">Success Score</span>
+                    <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest block">Success Score</span>
                     <div className="flex items-baseline gap-0.5">
                       <span className="text-2xl font-black text-emerald-400">82</span>
-                      <span className="text-[10px] text-slate-500">/100</span>
+                      <span className="text-[10px] text-zinc-500">/100</span>
                     </div>
                   </div>
                   <div className="relative w-12 h-12 flex items-center justify-center">
                     <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                      <path className="text-slate-900/5" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                      <path className="text-zinc-900/5" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                       <path className="text-emerald-500" strokeWidth="3" strokeDasharray="82, 100" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                     </svg>
                     <Zap className="w-4 h-4 text-emerald-400 absolute" />
@@ -288,16 +288,16 @@ export default function LandingPage() {
                 {/* Score breakdown metrics */}
                 <div className="space-y-3.5 mb-6">
                   {[
-                    { label: "Market Demand", val: "85%", col: "bg-blue-500" },
-                    { label: "Scalability potential", val: "92%", col: "bg-blue-500" },
+                    { label: "Market Demand", val: "85%", col: "bg-amber-500" },
+                    { label: "Scalability potential", val: "92%", col: "bg-amber-500" },
                     { label: "Competitor spacing", val: "65%", col: "bg-emerald-500" }
                   ].map((m, idx) => (
                     <div key={idx} className="space-y-1">
                       <div className="flex justify-between text-xs font-semibold">
-                        <span className="text-slate-500">{m.label}</span>
-                        <span className="text-slate-900">{m.val}</span>
+                        <span className="text-zinc-500">{m.label}</span>
+                        <span className="text-zinc-900">{m.val}</span>
                       </div>
-                      <div className="w-full h-1 bg-slate-50 rounded-full overflow-hidden">
+                      <div className="w-full h-1 bg-zinc-50 rounded-full overflow-hidden">
                         <div className={`h-full ${m.col}`} style={{ width: m.val }} />
                       </div>
                     </div>
@@ -305,12 +305,12 @@ export default function LandingPage() {
                 </div>
 
                 {/* AI Chat snippet */}
-                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl space-y-1.5">
+                <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-2xl space-y-1.5">
                   <div className="flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-blue-600" />
-                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">AI Persona Idea</span>
+                    <Users className="w-3.5 h-3.5 text-amber-500" />
+                    <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">AI Persona Idea</span>
                   </div>
-                  <p className="text-[10px] text-slate-700 leading-relaxed italic">
+                  <p className="text-[10px] text-zinc-700 leading-relaxed italic">
                     "Sustainable Sarah (Eco-conscious homeowner): High utility bills feel out of my control. I need automated efficiency recommendations."
                   </p>
                 </div>
@@ -322,11 +322,11 @@ export default function LandingPage() {
       </main>
 
       {/* Features Grid Section */}
-      <section id="features" className="py-24 px-6 relative border-t border-slate-200 bg-slate-50/20">
+      <section id="features" className="py-24 px-6 relative border-t border-zinc-200 bg-zinc-50/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Complete Startup Intelligence</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm">
+            <p className="text-zinc-500 max-w-xl mx-auto text-sm">
               We compile and map a total validation system in less than a minute. Everything is structured database-ready.
             </p>
           </div>
@@ -342,13 +342,13 @@ export default function LandingPage() {
             ].map((f, i) => (
               <div 
                 key={i} 
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 group"
+                className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-6 text-amber-500 group-hover:bg-amber-500 group-hover:text-zinc-900 transition-all duration-300">
                   <f.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-3">{f.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+                <h3 className="text-lg font-bold text-zinc-900 mb-3">{f.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -356,17 +356,17 @@ export default function LandingPage() {
       </section>
 
       {/* How it Works Step-by-Step */}
-      <section id="how-it-works" className="py-24 px-6 border-t border-slate-200">
+      <section id="how-it-works" className="py-24 px-6 border-t border-zinc-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 space-y-3">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">The 60-Second Process</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-sm">
+            <p className="text-zinc-500 max-w-xl mx-auto text-sm">
               We've consolidated hours of market research into three seamless steps.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
-            <div className="hidden lg:block absolute top-10 left-1/6 right-1/6 h-0.5 bg-slate-50 -z-10" />
+            <div className="hidden lg:block absolute top-10 left-1/6 right-1/6 h-0.5 bg-zinc-50 -z-10" />
             
             {[
               { step: "01", title: "Submit Startup Details", desc: "Provide your startup name, idea concept, industry, and budget range via our multi-step validation modal." },
@@ -374,11 +374,11 @@ export default function LandingPage() {
               { step: "03", title: "Explore Workspace", desc: "Review 12 interactive dashboard views, consult your AI co-founder, or download a printable business plan." }
             ].map((s, i) => (
               <div key={i} className="text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-slate-50 border border-slate-200 text-blue-600 text-xl font-extrabold flex items-center justify-center mx-auto shadow-xl">
+                <div className="w-16 h-16 rounded-full bg-zinc-50 border border-zinc-200 text-amber-500 text-xl font-extrabold flex items-center justify-center mx-auto shadow-xl">
                   {s.step}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{s.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                <h3 className="text-lg font-bold text-zinc-900">{s.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -386,23 +386,23 @@ export default function LandingPage() {
       </section>
 
       {/* Bottom Call to Action Section */}
-      <section className="py-24 px-6 border-t border-slate-200 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full -z-10" />
+      <section className="py-24 px-6 border-t border-zinc-200 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/10 blur-[120px] rounded-full -z-10" />
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Stop Guessing. <br />
-            <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-500 to-amber-500 bg-clip-text text-transparent">
               Start Validating.
             </span>
           </h2>
-          <p className="text-slate-500 text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-zinc-500 text-base max-w-lg mx-auto leading-relaxed">
             Get instant reports that verify whether your startup concept holds market viability before committing capital.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
               onClick={handleLaunchValidation}
               size="lg"
-              className="h-12 px-8 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl"
+              className="h-12 px-8 bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold rounded-xl"
             >
               Validate Startup Idea
             </Button>
@@ -410,7 +410,7 @@ export default function LandingPage() {
               onClick={handleLoadDemo}
               variant="outline"
               size="lg"
-              className="h-12 px-8 border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-900 font-bold rounded-xl"
+              className="h-12 px-8 border-zinc-200 bg-zinc-50 hover:bg-zinc-100 text-zinc-900 font-bold rounded-xl"
             >
               Explore Demo Dashboard
             </Button>
@@ -419,23 +419,23 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 py-12 px-6 bg-white">
+      <footer className="border-t border-zinc-200 py-12 px-6 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <img src="/logo.png" alt="LaunchPilot AI Logo" className="h-12 w-auto object-contain" />
           </Link>
-          <p className="text-slate-500 text-xs">© 2026 LaunchPilot AI. Formulate startup validation reports in 60 seconds.</p>
-          <div className="flex gap-6 text-slate-500 text-xs">
-            <a href="#" className="hover:text-slate-900 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Terms</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">GitHub</a>
+          <p className="text-zinc-500 text-xs">© 2026 LaunchPilot AI. Formulate startup validation reports in 60 seconds.</p>
+          <div className="flex gap-6 text-zinc-500 text-xs">
+            <a href="#" className="hover:text-zinc-900 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-zinc-900 transition-colors">Terms</a>
+            <a href="#" className="hover:text-zinc-900 transition-colors">GitHub</a>
           </div>
         </div>
       </footer>
 
       {/* Onboarding Wizard Dialog Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-xl border-slate-200 bg-white text-slate-900 rounded-3xl p-0 overflow-hidden shadow-2xl backdrop-blur-2xl">
+        <DialogContent className="max-w-xl border-zinc-200 bg-white text-zinc-900 rounded-3xl p-0 overflow-hidden shadow-2xl backdrop-blur-2xl">
           <div className="sr-only">
             <DialogTitle>Startup Onboarding Wizard</DialogTitle>
             <DialogDescription>Submit your startup details to analyze viability.</DialogDescription>
@@ -450,25 +450,25 @@ export default function LandingPage() {
 
       {/* Full-Screen Immersive Demo Seeding Loader */}
       {isDemoLoading && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-md text-slate-900 animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/90 backdrop-blur-md text-zinc-900 animate-in fade-in duration-300">
           {/* Glowing central orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/20 blur-[100px] rounded-full -z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-500/20 blur-[100px] rounded-full -z-10" />
           
           <div className="flex flex-col items-center gap-6 max-w-sm text-center px-6">
             <div className="relative">
               {/* Spinner */}
-              <div className="w-20 h-20 rounded-full border-4 border-blue-500/10 border-t-blue-600 animate-spin flex items-center justify-center shadow-lg shadow-blue-500/20" />
-              <Sparkles className="w-6 h-6 text-blue-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+              <div className="w-20 h-20 rounded-full border-4 border-amber-500/10 border-t-amber-500 animate-spin flex items-center justify-center shadow-lg shadow-amber-500/20" />
+              <Sparkles className="w-6 h-6 text-amber-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
             </div>
             
             <div className="space-y-2">
               <h3 className="text-xl font-extrabold tracking-tight">Compiling Demo Intelligence</h3>
-              <p className="text-blue-600 font-bold uppercase tracking-widest text-[10px] h-4">
+              <p className="text-amber-500 font-bold uppercase tracking-widest text-[10px] h-4">
                 {DEMO_PHASES[demoLoadingPhaseIdx]}
               </p>
             </div>
             
-            <p className="text-slate-500 text-xs leading-relaxed">
+            <p className="text-zinc-500 text-xs leading-relaxed">
               We are seeding the Postgres sandbox database with EcoStream AI telemetry and generating marketing charts.
             </p>
           </div>

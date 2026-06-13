@@ -26,10 +26,10 @@ export default function DashboardOverview() {
         <>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-1">Dashboard Overview</h1>
-              <p className="text-slate-500">Welcome back! Here's the latest analysis for <span className="text-blue-600 font-medium">{project.name}</span>.</p>
+              <h1 className="text-3xl font-bold tracking-tight text-zinc-900 mb-1">Dashboard Overview</h1>
+              <p className="text-zinc-500">Welcome back! Here's the latest analysis for <span className="text-amber-500 font-medium">{project.name}</span>.</p>
             </div>
-            <Button onClick={resetProject} className="bg-blue-600 hover:bg-blue-700 gap-2">
+            <Button onClick={resetProject} className="bg-amber-500 hover:bg-amber-600 gap-2">
               <Plus className="w-4 h-4" />
               New Validation
             </Button>
@@ -40,10 +40,10 @@ export default function DashboardOverview() {
             {[
               { label: "Overall Score", value: scores?.overall || 0, icon: Zap, color: "text-yellow-400", bg: "bg-yellow-400/10" },
               { label: "Market Demand", value: scores?.demand || 0, icon: TrendingUp, color: "text-emerald-400", bg: "bg-emerald-400/10" },
-              { label: "Scalability", value: scores?.scalability || 0, icon: Target, color: "text-blue-600", bg: "bg-blue-600/10" },
+              { label: "Scalability", value: scores?.scalability || 0, icon: Target, color: "text-amber-500", bg: "bg-amber-500/10" },
               { label: "Risk Factor", value: scores?.risk || 0, icon: AlertTriangle, color: "text-rose-400", bg: "bg-rose-400/10" },
             ].map((stat, i) => (
-              <Card key={i} className="bg-slate-50 border-slate-200 overflow-hidden group hover:border-slate-300 transition-all">
+              <Card key={i} className="bg-zinc-50 border-zinc-200 overflow-hidden group hover:border-zinc-300 transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className={stat.bg + " p-2 rounded-lg"}>
@@ -55,10 +55,10 @@ export default function DashboardOverview() {
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">{stat.label}</p>
+                    <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider">{stat.label}</p>
                     <div className="flex items-baseline gap-1">
-                      <h3 className="text-3xl font-bold text-slate-900">{stat.value}</h3>
-                      <span className="text-sm text-slate-500 font-medium">/100</span>
+                      <h3 className="text-3xl font-bold text-zinc-900">{stat.value}</h3>
+                      <span className="text-sm text-zinc-500 font-medium">/100</span>
                     </div>
                   </div>
                 </CardContent>
@@ -68,40 +68,40 @@ export default function DashboardOverview() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
             {/* Startup Summary */}
-            <Card className="lg:col-span-2 bg-slate-50 border-slate-200">
+            <Card className="lg:col-span-2 bg-zinc-50 border-zinc-200">
               <CardHeader>
                 <CardTitle className="text-lg font-bold flex items-center gap-2">
-                  <Lightbulb className="w-5 h-5 text-blue-600" />
+                  <Lightbulb className="w-5 h-5 text-amber-500" />
                   Startup Concept
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-slate-700 leading-relaxed italic">
+                <p className="text-zinc-700 leading-relaxed italic">
                   "{project.idea}"
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-200">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-zinc-200">
                   <div>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Industry</p>
-                    <p className="text-sm font-medium text-slate-900">{project.industry}</p>
+                    <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Industry</p>
+                    <p className="text-sm font-medium text-zinc-900">{project.industry}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Market</p>
-                    <p className="text-sm font-medium text-slate-900">{project.country}</p>
+                    <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Market</p>
+                    <p className="text-sm font-medium text-zinc-900">{project.country}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Model</p>
-                    <p className="text-sm font-medium text-slate-900">{project.businessModel}</p>
+                    <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Model</p>
+                    <p className="text-sm font-medium text-zinc-900">{project.businessModel}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Budget</p>
-                    <p className="text-sm font-medium text-slate-900">{project.budget}</p>
+                    <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Budget</p>
+                    <p className="text-sm font-medium text-zinc-900">{project.budget}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Action Items */}
-            <Card className="bg-slate-50 border-slate-200">
+            <Card className="bg-zinc-50 border-zinc-200">
               <CardHeader>
                 <CardTitle className="text-lg font-bold">Recommended Next Steps</CardTitle>
               </CardHeader>
@@ -112,11 +112,11 @@ export default function DashboardOverview() {
                   "Download business plan PDF",
                   "Consult AI Co-Founder on pricing"
                 ].map((task, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-200 hover:border-blue-500/30 transition-all cursor-pointer group">
-                    <div className="w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-all">
-                      <div className="w-2 h-2 rounded-full bg-transparent group-hover:bg-blue-600" />
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-zinc-50 border border-zinc-200 hover:border-amber-500/30 transition-all cursor-pointer group">
+                    <div className="w-5 h-5 rounded-full border border-zinc-600 flex items-center justify-center group-hover:border-amber-500 group-hover:bg-amber-500/20 transition-all">
+                      <div className="w-2 h-2 rounded-full bg-transparent group-hover:bg-amber-500" />
                     </div>
-                    <span className="text-sm text-slate-700 group-hover:text-slate-900 transition-colors">{task}</span>
+                    <span className="text-sm text-zinc-700 group-hover:text-zinc-900 transition-colors">{task}</span>
                   </div>
                 ))}
               </CardContent>
