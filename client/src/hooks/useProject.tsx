@@ -69,7 +69,6 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
     businessModel: string;
   }) => {
     try {
-      setLoading(true);
       setError(null);
       const token = await getToken();
       const headers: Record<string, string> = { "Content-Type": "application/json" };
@@ -90,11 +89,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       setProject(newProject);
       return newProject;
     } catch (err: any) {
-      setError(err.message || "Failed to process AI validation");
-      setLoading(false);
       return null;
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -105,7 +100,6 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 
   const loadDemoProject = async () => {
     try {
-      setLoading(true);
       setError(null);
       const token = await getToken();
       const headers: Record<string, string> = { "Content-Type": "application/json" };
@@ -125,8 +119,6 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
       console.warn("Demo project load failed:", err.message);
       setError(err.message || "Failed to load demo project");
       return null;
-    } finally {
-      setLoading(false);
     }
   };
 

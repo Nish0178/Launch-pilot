@@ -79,7 +79,11 @@ export default function OnboardingForm({ onSubmit, initialIdea = "" }: Onboardin
       return;
     }
     setLoading(true);
-    await onSubmit(form);
+    try {
+      await onSubmit(form);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isStepValid = () => {
