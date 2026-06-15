@@ -1,10 +1,10 @@
 import { Router } from 'express';
-// import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
+import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
 import * as ProjectController from '../controllers/project.controller';
 
 const router = Router();
 
-// router.use(ClerkExpressRequireAuth());
+router.use(ClerkExpressRequireAuth());
 
 router.post('/demo', ProjectController.createDemoProject);
 router.post('/', ProjectController.createProject);
