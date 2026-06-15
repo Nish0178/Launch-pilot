@@ -1,19 +1,22 @@
-# LaunchPilot AI
+## LaunchPilot AI
 
 AI-powered startup validation platform that helps entrepreneurs validate ideas, analyze markets, identify risks, generate pitch decks, and receive investor-ready insights.
 
-Features
-- AI Startup Validation
-- Market Research
-- SWOT Analysis
-- Investor Readiness Score
-- AI Co-Founder
-- Digital Twin Simulation
-- Pitch Deck Generation
-- Branding Generator
-- Business Plan Generator
--
-- # 🏗️ System Architecture
+## Features
+
+* AI Startup Validation
+* Market Research
+* SWOT Analysis
+* Investor Readiness Score
+* AI Co-Founder
+* Digital Twin Simulation
+* Pitch Deck Generation
+* Branding Generator
+* Business Plan Generator
+
+---
+
+# 🏗️ System Architecture
 
 ```text
 ┌─────────────────────────────────────────┐
@@ -105,6 +108,8 @@ AI Engine
 6. Results are stored in SQLite.
 7. Frontend displays interactive dashboards and reports to the user.
 
+---
+
 ## Tech Stack
 
 ### Frontend
@@ -133,5 +138,81 @@ AI Engine
 * Vercel
 * Render
 
-```
-```
+---
+
+## Live Demo
+
+### Frontend
+
+https://launch-pilot-eta.vercel.app
+
+### Backend API
+
+https://launch-pilot-cyex.onrender.com
+
+### Health Check
+
+https://launch-pilot-cyex.onrender.com/health
+
+---
+
+## About LaunchPilot AI
+
+LaunchPilot AI is an AI-powered startup validation platform designed to help entrepreneurs, students, founders, and innovators validate business ideas before investing significant time and resources.
+
+The platform leverages advanced AI models to provide:
+
+* Startup Validation Reports
+* Market Research
+* Competitor Analysis
+* SWOT Analysis
+* Customer Personas
+* Investor Readiness Assessment
+* Business Plans
+* Pitch Deck Generation
+* AI Co-Founder Assistance
+* Digital Twin Simulations
+* Branding Strategy Recommendations
+
+---
+
+## Developer
+
+### Nishant Trivedi
+
+Full Stack Developer | Software Engineer | Startup Builder
+
+Passionate about building AI-powered products, scalable web applications, and innovative startup solutions that solve real-world problems.
+
+### Connect
+
+* GitHub: https://github.com/Nish0178
+* Repository: https://github.com/Nish0178/Launch-pilot
+* Live Demo: https://launch-pilot-eta.vercel.app
+* Backend API: https://launch-pilot-cyex.onrender.com
+
+---
+
+## Support The Project
+
+If you found this project useful, please consider giving it a star on GitHub.
+
+⭐ Star the Repository:
+
+https://github.com/Nish0178/Launch-pilot
+
+Your support helps improve the project and motivates future development.
+
+---
+
+## Acknowledgements
+
+Special thanks to all contributors, mentors, teammates, and the open-source community whose tools and technologies made this project possible.
+
+Built with ❤️ by Nishant Trivedi.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
