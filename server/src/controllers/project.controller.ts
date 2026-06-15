@@ -13,7 +13,7 @@ const prisma = new PrismaClient({ adapter });
 export const createProject = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name, idea, industry, country, budget, businessModel } = req.body;
-    const targetUserId = req.auth.userId;
+    const targetUserId = "default-user";
 
     if (!name || !idea || !industry || !country || !budget || !businessModel) {
       res.status(400).json({ error: 'All fields are required' });
@@ -79,7 +79,7 @@ export const createProject = async (req: Request, res: Response): Promise<void> 
 export const getLatestProject = async (req: Request, res: Response): Promise<void> => {
   try {
     const project = await prisma.project.findFirst({
-      where: { userId: req.auth.userId },
+      where: { userId: "default-user" },
       orderBy: { createdAt: 'desc' },
       include: { validationReport: true },
     });
@@ -100,7 +100,7 @@ export const getProjectById = async (req: Request, res: Response): Promise<void>
   try {
     const id = req.params.id as string;
     const project = await prisma.project.findUnique({
-      where: { id, userId: req.auth.userId },
+      where: { id, userId: "default-user" },
       include: { validationReport: true },
     });
 
@@ -122,7 +122,7 @@ export const chatWithCofounder = async (req: Request, res: Response): Promise<vo
     const { messages, currentMessage } = req.body;
 
     const project = await prisma.project.findUnique({
-      where: { id, userId: req.auth.userId },
+      where: { id, userId: "default-user" },
       include: { validationReport: true },
     });
 
@@ -153,7 +153,7 @@ export const chatWithCofounder = async (req: Request, res: Response): Promise<vo
 export const generateDigitalTwin = async (req: Request, res: Response): Promise<void> => {
   try {
     const id = req.params.id as string;
-    const project = await prisma.project.findUnique({ where: { id, userId: req.auth.userId }, include: { validationReport: true } });
+    const project = await prisma.project.findUnique({ where: { id, userId: "default-user" }, include: { validationReport: true } });
     if (!project || !project.validationReport) { res.status(404).json({ error: 'Not found' }); return; }
 
     const report = project.validationReport;
@@ -187,10 +187,10 @@ export const runSimulation = async (req: Request, res: Response): Promise<void> 
   try {
     const id = req.params.id as string;
     const { pricing, market, segment } = req.body;
-    
-    const project = await prisma.project.findUnique({ where: { id, userId: req.auth.userId }, include: { validationReport: true } });
+
+    const project = await prisma.project.findUnique({ where: { id, userId: "default-user" }, include: { validationReport: true } });
     if (!project || !project.validationReport) { res.status(404).json({ error: 'Not found' }); return; }
-    
+
     const report = project.validationReport as any;
     const originalScore = report.scores?.overall || 80;
 
@@ -215,7 +215,7 @@ export const runSimulation = async (req: Request, res: Response): Promise<void> 
 export const generatePitchDeck = async (req: Request, res: Response): Promise<void> => {
   try {
     const id = req.params.id as string;
-    const project = await prisma.project.findUnique({ where: { id, userId: req.auth.userId }, include: { validationReport: true } });
+    const project = await prisma.project.findUnique({ where: { id, userId: "default-user" }, include: { validationReport: true } });
     if (!project || !project.validationReport) { res.status(404).json({ error: 'Not found' }); return; }
 
     const report = project.validationReport;
@@ -234,7 +234,7 @@ export const generatePitchDeck = async (req: Request, res: Response): Promise<vo
 export const generateBranding = async (req: Request, res: Response): Promise<void> => {
   try {
     const id = req.params.id as string;
-    const project = await prisma.project.findUnique({ where: { id, userId: req.auth.userId }, include: { validationReport: true } });
+    const project = await prisma.project.findUnique({ where: { id, userId: "default-user" }, include: { validationReport: true } });
     if (!project || !project.validationReport) { res.status(404).json({ error: 'Not found' }); return; }
 
     const report = project.validationReport;
@@ -251,6 +251,6 @@ export const generateBranding = async (req: Request, res: Response): Promise<voi
 };
 
 export const createDemoProject = async (req: Request, res: Response): Promise<void> => {
-    // Keep the existing demo generation for Hackathon backup purposes, but minimal implementation
-    res.status(501).json({ error: 'Demo generation disabled, please use main validation endpoint.' });
+  // Keep the existing demo generation for Hackathon backup purposes, but minimal implementation
+  res.status(501).json({ error: 'Demo generation disabled, please use main validation endpoint.' });
 };
