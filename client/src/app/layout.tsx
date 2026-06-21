@@ -22,9 +22,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "Launch Pilot-AI-powered startup validation platform",
+export const metadata: Metadata = {
+  title: "Launch Pilot AI",
   description: "AI-powered startup validation platform",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 export default function RootLayout({
   children,
